@@ -1,23 +1,20 @@
-import React from 'react';
+import React from "react";
+import Card from "./Card.js";
+import "./StarWars.css";
 
 class CardContainer extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {};
   }
-  
-  characters = () => {
-    return this.props.characters.map(x=>{
-    return <div>{x.name}</div>;
-      })
-  }
-  
+
   render() {
     return (
-    <div>{this.characters()}</div>
-    )
+      <div>
+        <Card characters={this.props.characters} />
+      </div>
+    );
   }
-  
 }
 
 export default CardContainer;
