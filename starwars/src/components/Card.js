@@ -9,7 +9,7 @@ function Card(props) {
 
   return (
     <div>
-      <ol>{characters()}</ol>
+      <ul>{characters()}</ul>
     </div>
   );
 }

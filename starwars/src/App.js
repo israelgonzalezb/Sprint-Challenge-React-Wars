@@ -12,6 +12,7 @@ class App extends React.Component {
       prevPage: ""
     };
     this.loadNextPage = this.loadNextPage.bind(this);
+    this.loadPreviousPage = this.loadPreviousPage.bind(this);
   }
 
   componentDidMount() {
@@ -39,7 +40,11 @@ class App extends React.Component {
   };
 
   loadNextPage() {
-    this.getCharacters(this.state.nextPage);
+    this.state.nextPage && this.getCharacters(this.state.nextPage);
+  }
+
+  loadPreviousPage() {
+    this.state.prevPage && this.getCharacters(this.state.prevPage);
   }
 
   render() {
@@ -47,7 +52,7 @@ class App extends React.Component {
       <div className="App">
         <h1 className="Header">React Wars</h1>
         <CardContainer characters={this.state.starwarsChars} />
-        <Navigation next={this.loadNextPage} previous={this.state.prevPage} />
+        <Navigation next={this.loadNextPage} previous={this.loadPreviousPage} />
       </div>
     );
   }
